@@ -1,9 +1,14 @@
 import requests
-URL=https://newsapi.org/v2/everything
+from datetime import datetime,timedelta
+URL="https://newsapi.org/v2/everything"
+
 #Function which queries the NewsAPI, returning a list of news articles in english,
 # containing the keyworfs and published in the last lookback days
-fetch_latest_news(api_key, news_keywords, lookback_days=10)
-    response = requests.get()
+def fetch_latest_news(api_key, news_keywords, lookback_days=10):
+    #Getting the requests with all appropriate parameters
+    response = requests.get(URL,params={"q":news_keywords,
+                                        "language":"en",
+                                        "from":(datetime.now()-timedelta(days=lookback_days))})
 
 
 
