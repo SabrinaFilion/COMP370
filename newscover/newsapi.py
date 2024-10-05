@@ -8,12 +8,13 @@ def fetch_latest_news(api_key, news_keywords, lookback_days=10):
     #Getting the requests with all appropriate parameters
     response = requests.get(URL,params={"q":news_keywords,
                                         "language":"en",
-                                        "from":(datetime.now()-timedelta(days=lookback_days))})
-
-
-
+                                        "from":(datetime.now()-timedelta(days=lookback_days)),
+                                        "apiKey":api_key})
+    data= response.json()
+    return data
 
 
 
 if __name__ =="__main__":
-    fetch_latest_news(5fb62789f7bd4435b2ae79c344b009c8,)
+    data=fetch_latest_news("5fb62789f7bd4435b2ae79c344b009c8","money",10)
+    print(data)
