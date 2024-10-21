@@ -3,8 +3,17 @@ from datetime import datetime,timedelta
 URL="https://newsapi.org/v2/everything"
 
 #Function which queries the NewsAPI, returning a list of news articles in english,
-# containing the keyworfs and published in the last lookback days
+# containing the keywords and published in the last lookback days
 def fetch_latest_news(api_key, news_keywords, lookback_days=10):
+    #Checking if the news keywords are present
+    if(not news_keywords):
+        raise TypeError
+    #checking keywords only contain alphabetical characters
+    for keyword in news_keywords:
+        if( not keyword.isalpha()):
+            raise ValueError
+    
+    
     #Getting the requests with all appropriate parameters
     response = requests.get(URL,params={"q":news_keywords,
                                         "language":"en",
@@ -16,5 +25,6 @@ def fetch_latest_news(api_key, news_keywords, lookback_days=10):
 
 
 if __name__ =="__main__":
-    data=fetch_latest_news("5fb62789f7bd4435b2ae79c344b009c8","money",10)
+    
+    data=fetch_latest_news("5fb62789f7bd4435b2ae79c344b009c8",["money"],10)
     print(data)
