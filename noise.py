@@ -16,3 +16,8 @@ def noise_complaints(input_file, start_date, end_date, output_file=None):
 
 df = dd.read_csv(input_file, header=None, names=column_names, dtype=dtypes, usecols=usecols)
 
+#Correcting the date format
+date_format = '%m/%d/%Y %I:%M:%S %p'
+
+df['created_date'] = dd.to_datetime(df['created_date'], format=date_format, errors='coerce')
+df['closed_date'] = dd.to_datetime(df['closed_date'], format=date_format, errors='coerce')
