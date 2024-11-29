@@ -4,5 +4,5 @@ It then calls the function fetch_latest_news from newsapi.py on every keyword pr
 fetch_latest-news requests NewsAPI for the articles corresponding to the keywords and lookback days.
 It writes the output of the function in the output file.
 
-This is how it would be used in the command line:
-python collector.py -k apikey -i kamala_cat.json -o data_kamala_10
+This is an example of how it would be used in the command line:
+python collector.py -k apikey -b 10 -i keywords.json -o data_output.json
