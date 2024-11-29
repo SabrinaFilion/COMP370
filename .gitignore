@@ -1,4 +1,0 @@
-*.csv
-*.tgz
-__pycache__/     # Ignore Python cache directories
-*.ipynb_checkpoints
