@@ -8,6 +8,7 @@ It writes the output of the function in the output file.
 A test folder is included.
 
 This is an example of how it would be used in the command line:
+
 python collector.py -k apikey -b 10 -i keywords.json -o data_output.json
 
 python -m unittest news_scraping.tests.newsapiTest
