@@ -3,7 +3,7 @@ import os
 import json
 from datetime import timedelta, datetime
 
-from newsapi import fetch_latest_news
+from news_scraping.newsapi import fetch_latest_news
 
 #Getting the api_key
 file_path = os.path.join(os.path.dirname(__file__), "test_secrets.json")
